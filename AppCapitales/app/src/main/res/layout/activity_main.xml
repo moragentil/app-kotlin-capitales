@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:orientation="vertical" android:padding="16dp">
+
+    <Button android:id="@+id/btnAgregar" android:layout_width="match_parent"
+        android:layout_height="wrap_content" android:text="Agregar Ciudad" />
+
+    <Button android:id="@+id/btnBuscar" android:layout_width="match_parent"
+        android:layout_height="wrap_content" android:text="Buscar Ciudad" />
+
+    <Button android:id="@+id/btnBorrarCiudad" android:layout_width="match_parent"
+        android:layout_height="wrap_content" android:text="Borrar Ciudad" />
+
+    <Button android:id="@+id/btnBorrarPais" android:layout_width="match_parent"
+        android:layout_height="wrap_content" android:text="Borrar por País" />
+
+    <Button android:id="@+id/btnModificar" android:layout_width="match_parent"
+        android:layout_height="wrap_content" android:text="Modificar Población" />
+</LinearLayout>
