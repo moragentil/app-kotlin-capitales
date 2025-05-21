@@ -1,30 +1,102 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:padding="16dp"
-    android:layout_width="match_parent" android:layout_height="match_parent">
+    android:orientation="vertical"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:padding="16dp"
+    android:background="#FFF" >
 
-    <EditText
-        android:id="@+id/editPais"
+    <!-- Contenedor header con botón volver y título -->
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="País"
-        android:minHeight="48dp" />
+        android:paddingBottom="8dp"
+        android:paddingTop="8dp">
 
-    <EditText
-        android:id="@+id/editCiudad"
+        <Button
+            android:id="@+id/btnVolver"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Atrás"
+            android:textColor="#FF6200EE"
+            android:textSize="18dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:padding="8dp"
+            android:minWidth="48dp"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:textAllCaps="false"
+            />
+
+        <TextView
+            android:id="@+id/tituloAgregarCiudad"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Agregar Ciudad"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textColor="#333"
+            android:layout_centerInParent="true" />
+    </RelativeLayout>
+
+    <!-- Espaciador para separar header del contenido central -->
+    <Space
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Ciudad"
-        android:minHeight="48dp" />
+        android:layout_height="24dp" />
 
-    <EditText
-        android:id="@+id/editPoblacion"
+    <!-- Contenedor centrado verticalmente para inputs + botón -->
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Población"
-        android:inputType="number"
-        android:minHeight="48dp" />
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:gravity="center">
 
-    <Button android:id="@+id/btnGuardar" android:layout_width="match_parent"
-        android:layout_height="wrap_content" android:text="Guardar" />
+        <EditText
+            android:id="@+id/editPais"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:hint="Nombre del País"
+            android:background="@drawable/bg_edittext"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:textColor="#222"
+            android:textSize="16sp"
+            android:layout_marginBottom="16dp" />
+
+        <EditText
+            android:id="@+id/editCiudad"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:hint="Nombre de la Ciudad"
+            android:background="@drawable/bg_edittext"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:textColor="#222"
+            android:textSize="16sp"
+            android:layout_marginBottom="16dp" />
+
+        <EditText
+            android:id="@+id/editPoblacion"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:hint="Población (Ej: 100000)"
+            android:inputType="number"
+            android:background="@drawable/bg_edittext"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:textColor="#222"
+            android:textSize="16sp"
+            android:layout_marginBottom="24dp" />
+
+        <Button
+            android:id="@+id/btnGuardar"
+            style="@style/ButtonCustomStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Guardar"
+            android:background="@drawable/rounded_button" />
+
+    </LinearLayout>
+
 </LinearLayout>
+

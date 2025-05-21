@@ -15,6 +15,10 @@ class ModificarCiudadActivity : AppCompatActivity() {
 
         db = DatabaseHelper(this)
 
+        binding.btnVolver.setOnClickListener {
+            finish()  // Cierra esta actividad y vuelve a la anterior
+        }
+
         binding.btnModificar.setOnClickListener {
             val ciudad = binding.editCiudad.text.toString()
             val nuevaPoblacion = binding.editPoblacion.text.toString().toIntOrNull()

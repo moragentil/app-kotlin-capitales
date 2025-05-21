@@ -15,6 +15,10 @@ class EliminarPaisActivity : AppCompatActivity() {
 
         db = DatabaseHelper(this)
 
+        binding.btnVolver.setOnClickListener {
+            finish()  // Cierra esta actividad y vuelve a la anterior
+        }
+
         binding.btnBorrarPais.setOnClickListener {
             val pais = binding.editPais.text.toString()
             val cantidad = db.eliminarPorPais(pais)

@@ -4,6 +4,8 @@ import android.content.ContentValues
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
+import android.util.Log
+
 
 class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, "ciudades.db", null, 1) {
     override fun onCreate(db: SQLiteDatabase) {
@@ -29,7 +31,15 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, "ciudades.db"
             put("ciudad", ciudad)
             put("poblacion", poblacion)
         }
-        return db.insert("capitales", null, values) != -1L
+
+        val resultado = db.insert("capitales", null, values)
+
+        Log.d("DEBUG_INSERTAR", "Intentando insertar: $values")
+        if (resultado == -1L) {
+            Log.e("DEBUG_INSERTAR", "Fallo el insert. Revisa si la ciudad ya existe o si la BD tiene error.")
+        }
+
+        return resultado != -1L
     }
 
     fun consultarCapital(nombreCiudad: String): String? {
@@ -63,4 +73,26 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, "ciudades.db"
         }
         return db.update("capitales", values, "ciudad = ?", arrayOf(ciudad)) > 0
     }
+    fun existeCiudad(ciudad: String): Boolean {
+        val db = readableDatabase
+        val cursor = db.rawQuery(
+            "SELECT 1 FROM capitales WHERE LOWER(ciudad) = LOWER(?) LIMIT 1",
+            arrayOf(ciudad)
+        )
+        val existe = cursor.moveToFirst()
+        cursor.close()
+        return existe
+    }
+    fun insertarCapitalPrueba(): Boolean {
+        val db = writableDatabase
+        val values = ContentValues().apply {
+            put("pais", "Argentina")
+            put("ciudad", "Buenos Aires")
+            put("poblacion", 3000000)
+        }
+        val id = db.insert("capitales", null, values)
+        Log.d("DBTest", "Insert ID: $id")
+        return id != -1L
+    }
+
 }

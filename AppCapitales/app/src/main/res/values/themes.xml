@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <style name="Theme.AppCapitales" parent="Theme.AppCompat.Light.NoActionBar" />
 
-    <style name="Theme.AppCapitales" parent="android:Theme.Material.Light.NoActionBar" />
+    <style name="ButtonCustomStyle" parent="Widget.AppCompat.Button">
+        <item name="android:backgroundTint">#FF6200EE</item>  <!-- Color de fondo -->
+        <item name="android:textColor">#FFFFFFFF</item>       <!-- Color del texto -->
+        <item name="android:padding">12dp</item>             <!-- Padding interno -->
+        <item name="android:textStyle">bold</item>           <!-- Texto en negrita -->
+        <item name="android:fontFamily">sans-serif-medium</item> <!-- Fuente -->
+
+    </style>
 </resources>

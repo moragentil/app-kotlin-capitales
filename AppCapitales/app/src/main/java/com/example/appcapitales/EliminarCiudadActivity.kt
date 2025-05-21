@@ -15,10 +15,39 @@ class EliminarCiudadActivity : AppCompatActivity() {
 
         db = DatabaseHelper(this)
 
-        binding.btnBorrarCiudad.setOnClickListener {
-            val ciudad = binding.editCiudad.text.toString()
-            val exito = db.eliminarPorCiudad(ciudad)
-            binding.editCiudad.setText(if (exito) "Ciudad eliminada" else "No se encontró la ciudad")
+        binding.btnVolver.setOnClickListener {
+            finish()  // Cierra esta actividad y vuelve a la anterior
         }
+
+        binding.btnBorrarCiudad.setOnClickListener {
+            val ciudad = binding.editCiudad.text.toString().trim()
+
+            if (ciudad.isEmpty()) {
+                binding.editCiudad.error = "Ingrese una ciudad"
+                return@setOnClickListener
+            }
+
+            // Mostrar diálogo de confirmación
+            val builder = android.app.AlertDialog.Builder(this)
+            builder.setTitle("Confirmar eliminación")
+            builder.setMessage("¿Estás seguro de que querés eliminar la ciudad \"$ciudad\"?")
+
+            builder.setPositiveButton("Sí") { _, _ ->
+                val exito = db.eliminarPorCiudad(ciudad)
+                if (exito) {
+                    binding.editCiudad.setText("")
+                    binding.editCiudad.hint = "Ciudad eliminada correctamente"
+                } else {
+                    binding.editCiudad.error = "No se encontró la ciudad"
+                }
+            }
+
+            builder.setNegativeButton("Cancelar") { dialog, _ ->
+                dialog.dismiss()
+            }
+
+            builder.create().show()
+        }
+
     }
 }

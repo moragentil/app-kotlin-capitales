@@ -1,14 +1,125 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:padding="16dp"
-    android:layout_width="match_parent" android:layout_height="match_parent">
+    android:orientation="vertical"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:padding="16dp"
+    android:background="#FFF">
 
-    <EditText android:id="@+id/editCiudad" android:layout_width="match_parent"
-        android:layout_height="wrap_content" android:hint="Ciudad" />
+    <!-- Header con botón volver a la izquierda y título centrado -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="8dp"
+        android:paddingTop="8dp">
 
-    <Button android:id="@+id/btnBuscar" android:layout_width="match_parent"
-        android:layout_height="wrap_content" android:text="Buscar" />
+        <Button
+            android:id="@+id/btnVolver"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Atrás"
+            android:textColor="#FF6200EE"
+            android:textSize="18dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:padding="8dp"
+            android:minWidth="48dp"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:textAllCaps="false"
+            />
 
-    <TextView android:id="@+id/textResultado" android:layout_width="match_parent"
-        android:layout_height="wrap_content" android:textSize="16sp" />
+        <TextView
+            android:id="@+id/tituloBuscarCiudad"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Buscar Ciudad"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textColor="#333"
+            android:layout_centerInParent="true" />
+    </RelativeLayout>
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="24dp" />
+
+    <!-- Contenido centrado verticalmente -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <EditText
+            android:id="@+id/editCiudad"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:hint="Ciudad"
+            android:background="@drawable/bg_edittext"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:textColor="#222"
+            android:textSize="16sp"
+            android:layout_marginBottom="24dp" />
+
+        <Button
+            android:id="@+id/btnBuscar"
+            style="@style/ButtonCustomStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Buscar"
+            android:layout_marginBottom="24dp"
+            android:background="@drawable/rounded_button" />
+
+        <LinearLayout
+            android:id="@+id/layoutResultado"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:visibility="gone"
+            android:elevation="4dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="24dp"
+            android:clipToPadding="false"
+            android:clipChildren="false"
+            android:layout_gravity="center_horizontal"
+            android:backgroundTint="#FFF"
+            android:backgroundTintMode="src_in"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:background="@drawable/rounded_card">
+
+            <TextView
+                android:id="@+id/tvPaisResultado"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="País: Argentina"
+                android:textSize="18sp"
+                android:textColor="#222"
+                android:textStyle="bold"
+                android:layout_marginBottom="4dp" />
+
+            <TextView
+                android:id="@+id/tvCiudadResultado"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Ciudad: Buenos Aires"
+                android:textSize="18sp"
+                android:textColor="#222"
+                android:layout_marginBottom="4dp" />
+
+            <TextView
+                android:id="@+id/tvPoblacionResultado"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Población: 3,000,000"
+                android:textSize="18sp"
+                android:textColor="#222" />
+
+        </LinearLayout>
+    </LinearLayout>
+
 </LinearLayout>

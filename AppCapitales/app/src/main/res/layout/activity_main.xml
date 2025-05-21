@@ -1,20 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent" android:layout_height="match_parent"
-    android:orientation="vertical" android:padding="16dp">
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:gravity="center">
 
-    <Button android:id="@+id/btnAgregar" android:layout_width="match_parent"
-        android:layout_height="wrap_content" android:text="Agregar Ciudad" />
+    <!-- Título -->
+    <TextView
+        android:id="@+id/titulo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ciudades Capitales"
+        android:textColor="#FF6200EE"
+        android:textSize="32sp"
+        android:textStyle="bold"
+        android:padding="12dp"
+        android:layout_marginBottom="48dp"
+        android:gravity="center"
+        android:minWidth="200dp"
+        android:maxWidth="400dp" />
 
-    <Button android:id="@+id/btnBuscar" android:layout_width="match_parent"
-        android:layout_height="wrap_content" android:text="Buscar Ciudad" />
+    <!-- Botones -->
+    <Button
+        android:id="@+id/btnAgregar"
+        style="@style/ButtonCustomStyle"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:text="Agregar Ciudad"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/rounded_button" />
 
-    <Button android:id="@+id/btnBorrarCiudad" android:layout_width="match_parent"
-        android:layout_height="wrap_content" android:text="Borrar Ciudad" />
+    <Button
+        android:id="@+id/btnBuscar"
+        style="@style/ButtonCustomStyle"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:text="Buscar Ciudad"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/rounded_button" />
 
-    <Button android:id="@+id/btnBorrarPais" android:layout_width="match_parent"
-        android:layout_height="wrap_content" android:text="Borrar por País" />
+    <Button
+        android:id="@+id/btnBorrarCiudad"
+        style="@style/ButtonCustomStyle"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:text="Borrar Ciudad"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/rounded_button" />
 
-    <Button android:id="@+id/btnModificar" android:layout_width="match_parent"
-        android:layout_height="wrap_content" android:text="Modificar Población" />
+    <Button
+        android:id="@+id/btnBorrarPais"
+        style="@style/ButtonCustomStyle"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:text="Borrar por País"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/rounded_button" />
+
+    <Button
+        android:id="@+id/btnModificar"
+        style="@style/ButtonCustomStyle"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:text="Modificar Población"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/rounded_button" />
+
 </LinearLayout>
